@@ -18,7 +18,7 @@ with open(config_path, "r") as file:
     config = yaml.safe_load(file)
 
 # Define input path for templates
-TEMPLATE_DIR = "templates"
+TEMPLATE_DIR = config.get("template_directory", "templates")
 
 # Step 2: Set up the Jinja2 environment
 env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))

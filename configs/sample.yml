@@ -1,22 +1,22 @@
+template_directory: templates/demo-template
 global_context:
   how_many_tacos: 42
-
 
 copy_files:
   - README.md
   - LICENSE
 
 templates:
-  - template: demo-template/main.py.j2
+  - template: main.py.j2
     output: main.py
     context:
       project_name: "AwesomeProject"
 
 multiple_templates:
-  - template: demo-template/config.j2
+  - template: config.j2
     contexts:
       - { env: "dev", debug: true }
       - { env: "prod", debug: false }
     output_files:
-      - config_dev.py
-      - config_prod.py
+      - conf/config_dev.py
+      - conf/config_prod.py
